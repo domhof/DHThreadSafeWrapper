@@ -42,17 +42,12 @@ public class ThreadSafe<Type> {
         self.dispatchQueue = dispatchQueue
     }
     
-    /// Get or set the value synchronously.
+    /// Get the value synchronously.
     public var value: Type {
         get {
             var value_: Type!
             syncRead { value_ = $0 }
             return value_
-        }
-        set {
-            syncWrite { (value_) in
-                value_ = newValue
-            }
         }
     }
     

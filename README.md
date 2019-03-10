@@ -10,7 +10,7 @@ let someVar = ThreadSafe(false)
 print("someVar: \(someVar.value)")
 
 // Synchronously write
-someVar.value = true
+someVar.syncWrite { $0 = true } 
 
 someVar.asyncRead { (value) in
     // Do some work that should be done together with reading the value...
@@ -33,7 +33,7 @@ workItem.cancel()
 let queue = DispatchQueue(label: "com.dominikhofer.myQueue", qos: .background, attributes: .concurrent)
 let usingTheSameQueue1 = ThreadSafe(0, dispatchQueue: queue)
 let usingTheSameQueue2 = ThreadSafe(0, dispatchQueue: queue)
-usingTheSameQueue1.value += 1
-usingTheSameQueue2.value += 1
+usingTheSameQueue1.asyncWrite { $0 += 1 }
+usingTheSameQueue2.asyncWrite { $0 += 1 }
 // ...
 ```
