@@ -1,5 +1,5 @@
 # DHThreadSafeWrapper
-Combines a value with a dispatch queue. The dispatch queue is used handle concurrent read/write access.
+Combines a value with a dispatch queue. The dispatch queue is used to handle concurrent read/write access.
 
 ## Examples
 ```swift
