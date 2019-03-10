@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'DHThreadSafeWrapper'
-  spec.version      = '1.0.0'
+  spec.version      = '1.0.1'
   spec.summary      = 'Combines a value with a dispatch queue. The dispatch queue is used handle concurrent read/write access.'
 
   spec.homepage     = 'https://github.com/domhof/DHThreadSafeWrapper'
